@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try & catch</title>
+</head>
+<body>
+    <h1>try catch</h1> <br>
+
+    valor 1: <input type="text" name="nom" id="nom"><br>
+    valor 2: <input type="text" name="valUni" id="valUni"><br>
+    valor 3: <input type="text" name="cant" id="cant" required ><br>
+    
+    <button onclick="sumar();">calcular</button>
+    resultado: <input type="text" name="res" id="res"><br>
+
+    <script type="text/javascript">
+        function sumar() {
+            let v1 = document.getElementById("nom").value;
+            let vv2 = document.getElementById("valUni").value;
+            let vv3 = document.getElementById("cant").value;
+        
+
+            try {
+                let v2= parseInt(vv2);
+                let v3= parseInt(vv3);
+                //let res= vv1+vv2;
+                //document.getElementById("res").value=res
+                if (!isNaN(v1)) {
+                    throw("no es texto")
+                    //throw new TypeError("error de valor no numerico..!!")
+                }else if(isNaN(v2)){
+                    throw("no es numero")
+                }else if(isNaN(v3)){
+                    throw("no es numero")
+                }
+                let res=v2+v3
+                document.getElementById("res").value=res;
+            } catch (error) {
+                alert("error: "+error)
+            }finally{
+                alert("ejecucion de finally...!!!")
+                document.getElementById("nom").value ="";
+                document.getElementById("valUni").value="";
+                document.getElementById("cant").value="";
+            }
+           
+        }
+
+    </script>
+</body>
+</html>
